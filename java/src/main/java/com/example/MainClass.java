@@ -58,7 +58,7 @@ public class MainClass {
 
         }
 
-        tc.printInfo();
+//        tc.printInfo();
 //
 
 
@@ -89,6 +89,15 @@ public class MainClass {
 //                    + " (" + params
 //                    + ")");
         }
+
+        for (Method method : ms) {
+           if(method.isAnnotationPresent(BindGet.class)){
+               BindGet bindGet = method.getAnnotation(BindGet.class);
+               String param=bindGet.value();
+               method.invoke(tc, param);
+           }
+        }
+
 
         // 获取所有的Annotation
         Annotation[] annotations=c.getAnnotations();

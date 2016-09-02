@@ -11,9 +11,10 @@ public class TestClass {
 
     private int number;
 
-    @BindGet
-    void get(){
-
+    @BindGet("mike")
+    void get(String param){
+        String url="http://www.baidu.com/?username="+param;
+        System.err.println("get------->"+url);
     }
 
 
