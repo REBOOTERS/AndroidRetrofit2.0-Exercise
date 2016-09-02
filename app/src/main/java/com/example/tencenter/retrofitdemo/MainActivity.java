@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (loading == null) {
             loading = new ProgressDialog(mContext);
+            loading.setTitle("loading...");
             loading.show();
         }
         UserBasicService service = retrofitBasic.create(UserBasicService.class);
@@ -152,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (TextUtils.isEmpty(param)) {
             return;
         }
+        result.setText("");
         switch (v.getId()) {
             case R.id.getbacic:
                 RetrofitBasicGet(param);
@@ -163,6 +165,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
-
 }
